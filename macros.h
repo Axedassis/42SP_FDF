@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 16:54:21 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:02:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
                                               
 */
 #define ERR_AMOUNT_ARGS "[Error]: Invalid number of arguments"
+#define ERR_MALLOC "[Error]: Memory allocation failure"
+#define ERR_INVALID_PATH "[Error]: The provided path is invalid"
+#define ERR_EMPTY_PATH "[Error]: The provided path is empty"
+#define ERR_INVALID_FILE_FORMAT "[Error]: The provided file format is invalid"
 
 /*
      _                   _   
@@ -47,11 +51,17 @@ typedef struct s_img
 	t_line	*line;
 }	t_img;
 
+typedef struct s_map
+{
+	
+}	t_map;
+
 typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
 	t_img	img;
+	s_map	map;
 }	t_mlx;
 
 #endif
