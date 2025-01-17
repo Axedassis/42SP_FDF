@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 20:34:59 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:45:18 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_path(const char *f_name)
 	int		i;
 
 	if (!f_name)
-		error_exit(ERR_EMPTY_PATH, 4)
+		error_exit(ERR_EMPTY_PATH, 4);
 	i = 0;
 	while(f_name[i])
 		i++;
@@ -31,7 +31,7 @@ int	check_path(const char *f_name)
 		i--;
 	if (i == -1 || !ft_strcmp((f_name + 1), ".fdf"))
 		error_exit(ERR_INVALID_FILE_FORMAT, 5);
-	return (0)
+	return (0);
 }
 
 int	set_dimensions(t_map *map, const char *f_name)
@@ -40,7 +40,7 @@ int	set_dimensions(t_map *map, const char *f_name)
 	int		width;
 	int		heigth;
 
-	fd = open(f_name, O_RDONLY)
+	fd = open(f_name, O_RDONLY);
 	if (!fd)
 		return (0);
 	

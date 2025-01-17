@@ -6,14 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 20:02:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:43:30 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
 
 #ifndef MACROS_H
 #define MACROS_H
+
+#include "./fdf.h"
 
 /*
                                        _      
@@ -48,7 +49,6 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
-	t_line	*line;
 }	t_img;
 
 typedef struct s_map
@@ -61,7 +61,7 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	t_img	img;
-	s_map	map;
+	t_map	map;
 }	t_mlx;
 
 #endif

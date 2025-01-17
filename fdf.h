@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:51:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:43:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 #include <stdlib.h>
 // perror
 #include <stdio.h>
+#include <fcntl.h>
 
 /*
   __                  _   _                 
