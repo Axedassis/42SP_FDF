@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:20:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:16:28 by lsilva-x         ###   ########.fr       */
+/*   Created: 2024/10/16 21:13:45 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/18 22:33:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*file_name;
-	t_mlx	mlx;
-	
-	if (argc != 2)
-		error_exit(ERR_AMOUNT_ARGS, 1);
-	file_name = argv[1];
-	init_fdf(file_name);
+	unsigned int	i;
+	char			*cptr;
+
+	i = 0;
+	if (n == 0)
+		return ;
+	cptr = (char *)s;
+	while (i < n)
+	{
+		cptr[i] = 0;
+		i++;
+	}
 }

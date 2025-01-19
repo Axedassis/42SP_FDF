@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:20:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:16:28 by lsilva-x         ###   ########.fr       */
+/*   Created: 2024/10/16 22:18:54 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/18 22:33:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*file_name;
-	t_mlx	mlx;
-	
-	if (argc != 2)
-		error_exit(ERR_AMOUNT_ARGS, 1);
-	file_name = argv[1];
-	init_fdf(file_name);
+	unsigned int	i;
+
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (dest < src)
+	{
+		i = 0;
+		while (i < n)
+		{
+			((char *) dest)[i] = ((char *) src)[i];
+			i++;
+		}
+	}
+	else
+	{
+		i = n;
+		while (i > 0)
+		{
+			((char *) dest)[i - 1] = ((char *) src)[i - 1];
+			i--;
+		}
+	}
+	return (dest);
 }

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:20:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:16:28 by lsilva-x         ###   ########.fr       */
+/*   Created: 2024/10/24 17:32:44 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/18 22:34:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char **argv)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*file_name;
-	t_mlx	mlx;
-	
-	if (argc != 2)
-		error_exit(ERR_AMOUNT_ARGS, 1);
-	file_name = argv[1];
-	init_fdf(file_name);
+	t_list	*tmp;
+
+	if (*lst == NULL || del == NULL)
+		return ;
+	tmp = *lst;
+	if (tmp->next != NULL)
+		ft_lstclear(&tmp->next, del);
+	del(tmp->content);
+	free(tmp);
+	*lst = NULL;
 }

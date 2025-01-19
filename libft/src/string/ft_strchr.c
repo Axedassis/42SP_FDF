@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:20:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:16:28 by lsilva-x         ###   ########.fr       */
+/*   Created: 2024/10/15 17:21:41 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/18 22:33:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*file_name;
-	t_mlx	mlx;
-	
-	if (argc != 2)
-		error_exit(ERR_AMOUNT_ARGS, 1);
-	file_name = argv[1];
-	init_fdf(file_name);
+	int				i;
+	unsigned char	uc;
+
+	i = 0;
+	uc = (unsigned char)c;
+	if (!ft_isascii(uc))
+		return ((void *)0);
+	while (s[i] != '\0')
+	{
+		if (s[i] == uc)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (s[i] == uc)
+		return ((char *)&s[i]);
+	return ((void *)0);
 }

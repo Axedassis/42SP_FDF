@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:20:54 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/17 17:16:28 by lsilva-x         ###   ########.fr       */
+/*   Created: 2024/10/23 01:18:40 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/18 22:33:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*file_name;
-	t_mlx	mlx;
-	
-	if (argc != 2)
-		error_exit(ERR_AMOUNT_ARGS, 1);
-	file_name = argv[1];
-	init_fdf(file_name);
+	size_t	s_size;
+
+	s_size = ft_strlen(s);
+	if (s_size == 2147483647)
+		return ;
+	write(fd, s, s_size);
 }
