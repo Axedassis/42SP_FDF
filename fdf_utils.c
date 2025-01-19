@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 20:04:32 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:41:09 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	get_metadata(t_map *map, const char *str)
 	ft_printf("[Log]: Size/Dots value: %d\n", map->size);
 }
 
-int	init_map(t_mlx *mlx, const char *f_name)
+char	*init_map(t_mlx *mlx, const char *f_name)
 {
 	int		fd;
 	char	*str;
@@ -147,8 +147,19 @@ int	init_map(t_mlx *mlx, const char *f_name)
 		return (0);
 	str = read_map(fd);
 	get_metadata(&mlx->data_map, str);
-	return (1);
+	return (str);
 }
+
+void list_points(t_mlx *mlx)
+{
+	int i;
+
+	for (i = 0; i < mlx->data_map.size; i++)
+	{
+		ft_printf("[Log]: Point %d: X = %d, Y = %d, Z = %d\n", i, mlx->pts[i].x, mlx->pts[i].y, mlx->pts[i].z);
+	}
+}
+
 
 t_mlx	*init_fdf(const char *f_name)
 {
@@ -167,5 +178,6 @@ t_mlx	*init_fdf(const char *f_name)
 	if (!mlx->pts)
 		error_exit(ERR_MALLOC, 8);
 	set_pts(mlx, str);
+	list_points(mlx);
 	return (mlx);
 }

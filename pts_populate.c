@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:40:58 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 20:16:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:40:32 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	increase_ptr(int crr_n)
 		tmp /= 10;
 		i++;
 	}
-	return (tmp);
+	return (i);
 }
 
 static void	set_pt(char **str, int origin_x, int origin_y, t_point *ptr)
@@ -50,7 +50,7 @@ static void set_color(char **str, t_point *ptr)
 {
 	*str += 3;
 	ptr->color = ft_atoi_hexa(*str);
-	while (**str != ' ' && **str != '\0' && **str != '\n')
+	while (**str != ' ' && **str != 0 && **str != '\n')
 		*str = *str + 1;
 }
 
@@ -66,10 +66,11 @@ void	set_pts(t_mlx *mlx, char *str)
 	i = 0;
 	while (*str)
 	{
-		if (*str == '-' || (*str >= 0 && *str <= 9))
+		if (*str == '-' || (*str >= '0' && *str <= '9'))
 		{
 			x += mlx->data_map.mult;
 			set_pt(&str, x, y, &mlx->pts[i]);
+			i++;
 		}
 		else if (*str == ',')
 			set_color(&str, &mlx->pts[i - 1]);
