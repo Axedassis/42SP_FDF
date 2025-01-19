@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 17:28:58 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:04:32 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ char	*read_map(int fd)
 	char	*str;
 	char	*str_tmp;
 
+	str = ft_strdup("");
 	str_tmp = get_next_line(fd);
 	if (!str_tmp)
 		error_exit(ERR_GNL, 7);
 	while (1)
 	{
 		if (str_tmp != 0)
-			str = ft_strjoin(str, str_tmp);
+			str = ft_strjoin(str, str_tmp); //0 0 0 1 0 2 0 \n 0 0 1 0 2 0 \n
 		else
 			break;
 		free (str_tmp);
@@ -146,19 +147,25 @@ int	init_map(t_mlx *mlx, const char *f_name)
 		return (0);
 	str = read_map(fd);
 	get_metadata(&mlx->data_map, str);
+	return (1);
 }
 
 t_mlx	*init_fdf(const char *f_name)
 {
 	t_mlx	*mlx;
+	char	*str;
 
 	mlx = (t_mlx *)malloc(1 * sizeof(t_mlx));
 	if (!mlx)
 		error_exit(ERR_MALLOC, 2);
 	if (!check_path(f_name))
 		error_exit(ERR_INVALID_PATH, 3);
-	if (!init_map(mlx, f_name))
+	str = init_map(mlx, f_name);
+	if (!str)
 		error_exit(ERR_INVALID_PATH, 6);
-		
+	mlx->pts = (t_point *)malloc(sizeof(t_point) * mlx->data_map.size);
+	if (!mlx->pts)
+		error_exit(ERR_MALLOC, 8);
+	set_pts(mlx, str);
 	return (mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 17:18:22 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:23:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@
 #define ERR_EMPTY_PATH "[Error]: The provided path is empty"
 #define ERR_INVALID_FILE_FORMAT "[Error]: The provided file format is invalid"
 #define ERR_GNL "[Error]: GNL had an error"
-
+#define ERR_MLX_INIT "[Error]: Unable to initialize MLX"
+#define ERR_MLX_WIN "[Error]: Unable to initialize WIN from MLX"
 /*
      _                   _   
     | |                 | |  
