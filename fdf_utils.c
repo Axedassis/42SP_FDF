@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/18 23:52:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:28:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,49 @@ int	get_columns(const char *str)
 	return (columns);
 }
 
+int	get_mult(t_map *map)
+{
+	int		mult;
+
+	mult = 0;
+	if (map->columns > map->rows)
+		mult = map->columns / 800;
+	else
+		mult = map->rows / 800;
+	
+	if (mult < 2)
+		mult = 2;
+	ft_printf("[Log]: Multiplier value: %d\n", mult);
+	return (mult);
+}
+
+void	get_origin(t_map *map)
+{
+	int		window_x;
+	int		window_y;
+	int		img_x;
+	int		img_y;
+
+	window_x = WIN_WIDTH / 2;
+	window_y = WIN_HEIGHT / 2;
+	img_x = ((map->rows - 1) / 2) * map->mult;
+	img_y = ((map->columns - 1) / 2) * map->mult;
+	map->origin_x = map->origin_x + (window_x - img_x);
+	map->origin_y = map->origin_y + (window_y - img_y);
+	ft_printf("[Log]: Origin_X value: %d\n", map->origin_x);
+	ft_printf("[Log]: Origin_Y value: %d\n", map->origin_y);
+}
+
 void	get_metadata(t_map *map, const char *str)
 {
 	map->rows = get_rows(str);
 	map->columns = get_columns(str);
-	
+	map->size = map->rows * map->columns; //number of points on the map
+	map->mult = get_mult(map); //number of segment size
+	map->origin_x = 0;
+	map->origin_y = 0;
+	get_origin(map);
+	ft_printf("[Log]: Size/Dots value: %d\n", map->size);
 }
 
 int	init_map(t_mlx *mlx, const char *f_name)

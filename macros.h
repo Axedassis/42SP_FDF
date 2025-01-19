@@ -6,13 +6,28 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/18 23:10:39 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:18:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef MACROS_H
 #define MACROS_H
+
+/*
+                                           
+                                           
+  ___ ___  _ __ ___  _ __ ___   ___  _ __  
+ / __/ _ \| '_ ` _ \| '_ ` _ \ / _ \| '_  \
+| (_| (_) | | | | | | | | | | | (_) | | | |
+ \___\___/|_| |_| |_|_| |_| |_|\___/|_| |_|
+                                           
+                                           
+*/
+
+#define WIN_TITLE "Fdf"
+#define WIN_HEIGHT 900
+#define WIN_WIDTH 1200
 
 /*
                                        _      
@@ -23,6 +38,7 @@
  \___|_|  |_|  \___/|_|  \___\___/ \__,_|\___|
                                               
 */
+
 #define ERR_AMOUNT_ARGS "[Error]: Invalid number of arguments"
 #define ERR_MALLOC "[Error]: Memory allocation failure"
 #define ERR_INVALID_PATH "[Error]: The provided path is invalid"
