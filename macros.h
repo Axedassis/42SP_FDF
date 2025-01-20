@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 18:23:14 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:24:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,15 @@ typedef struct s_mlx
 	t_map	data_map;
 	t_point	*pts;
 }	t_mlx;
+
+typedef struct s_translate
+{
+	int		centerx;
+	int		centery;
+	float	deltax;
+	float	deltay;
+	float	rad;
+	float	tan;
+}	t_translate;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/19 20:41:09 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:30:25 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,5 +179,6 @@ t_mlx	*init_fdf(const char *f_name)
 		error_exit(ERR_MALLOC, 8);
 	set_pts(mlx, str);
 	list_points(mlx);
+	transform_pts(&mlx);
 	return (mlx);
 }
