@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/18 23:10:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:27:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@
 int	error_exit(const char *msg, int code);
 t_mlx	*init_fdf(const char *f_name);
 int	check_path(const char *f_name);
+char	*init_mlx(t_mlx *mlx);
+void	set_pts(t_mlx *mlx, char *str);
+int	ft_atoi_hexa(char *str);
 
 # endif
