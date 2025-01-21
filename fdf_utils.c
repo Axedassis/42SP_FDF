@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:54:55 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/20 20:30:25 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/20 23:22:50 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ int	get_mult(t_map *map)
 
 	mult = 0;
 	if (map->columns > map->rows)
-		mult = map->columns / 800;
+		mult = 800 / map->columns;
 	else
-		mult = map->rows / 800;
+		mult = 800 / map->rows;
 	
 	if (mult < 2)
 		mult = 2;
@@ -150,17 +150,6 @@ char	*init_map(t_mlx *mlx, const char *f_name)
 	return (str);
 }
 
-void list_points(t_mlx *mlx)
-{
-	int i;
-
-	for (i = 0; i < mlx->data_map.size; i++)
-	{
-		ft_printf("[Log]: Point %d: X = %d, Y = %d, Z = %d\n", i, mlx->pts[i].x, mlx->pts[i].y, mlx->pts[i].z);
-	}
-}
-
-
 t_mlx	*init_fdf(const char *f_name)
 {
 	t_mlx	*mlx;
@@ -178,7 +167,6 @@ t_mlx	*init_fdf(const char *f_name)
 	if (!mlx->pts)
 		error_exit(ERR_MALLOC, 8);
 	set_pts(mlx, str);
-	list_points(mlx);
-	transform_pts(&mlx);
+	transform_pts(mlx, -0.7854, 0.7500);
 	return (mlx);
 }

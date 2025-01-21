@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:46:48 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/20 20:24:20 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/20 23:10:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,14 @@ typedef struct s_translate
 	float	tan;
 }	t_translate;
 
+typedef struct s_delta
+{
+	double	deltax;
+	double	deltay;
+	double	deltacolor;
+	double	x;
+	double	y;
+	double	c;
+	int		pixels;
+}	t_delta;
 #endif

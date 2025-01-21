@@ -6,13 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:03 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/20 20:31:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:50:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	getcenter(t_mlx *mlx, int *centerX, int *centerY)
+static void	getcenter(t_mlx *mlx, int *centerX, int *centerY)
 {
 	int	halfx;
 	int	halfy;
@@ -23,7 +23,7 @@ void	getcenter(t_mlx *mlx, int *centerX, int *centerY)
 	*centerY = mlx->pts[0].y + halfy;
 }
 
-double	getrad(float deltaX, float deltaY)
+static double	getrad(float deltaX, float deltaY)
 {
 	double	rad;
 
@@ -46,7 +46,7 @@ double	getrad(float deltaX, float deltaY)
 	return (rad);
 }
 
-t_mlx	*ft_transform(t_mlx *mlx, float rad1, float rad2)
+t_mlx	*transform_pts(t_mlx *mlx, float rad1, float rad2)
 {
 	t_translate		translate;
 	int			i;
