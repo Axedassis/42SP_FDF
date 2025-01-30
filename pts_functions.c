@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pts_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:12:57 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/30 20:16:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, const char **argv)
+void	init_pts(mlx, readed_map)
 {
-	if (argc == 2)
-	{
-		t_mlx	*mlx;
-		const char *path_file;
-
-		path_file = argv[1];
-		mlx = init_fdf(path_file);
-		printf ("[LOG]: MAP_ROW: %d | MAP_COLUMN: %d\n", mlx->map.max_x, mlx->map.max_y);
-		free(mlx);
-	}
-	else
-		error_exit("Number of invalid arguments, maximum 1", 1);
-	return (0);
+	
+	free (readed_map);
 }

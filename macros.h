@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:15:24 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/30 18:39:36 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef MACROS_H
+# define MACROS_H
 
-# include "minilibx-linux/mlx.h"
-# include "libft/includes/libft.h"
-# include "macros.h"
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <X11/keysym.h>
+typedef struct	s_pt
+{
+	int		x;
+	int		y;
+	int		z;
+	int		color;
+}	t_pts;
 
-void	error_exit(const char *msg, int code);
-t_mlx	*init_fdf(const char *path_file);
-char	*init_map(t_mlx *mlx, const char *path_file);
-void	init_pts(mlx, readed_map);
+typedef struct	s_map
+{
+	int		max_x;
+	int		max_y;
+	int		max_z;
+	int		min_z;
+	t_pts	**pts;
+}	t_map;
+
+
+typedef struct	s_fdf
+{
+	void	*mlx;
+	void	*win;
+	t_map	map;
+	// t_cam	cam;
+	// t_data	img;
+}	t_mlx;
 
 #endif

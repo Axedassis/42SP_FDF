@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   common_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:12:57 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/01/30 18:43:40 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/30 18:45:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, const char **argv)
+void	error_exit(const char *msg, int code)
 {
-	if (argc == 2)
+	if (code != 0)
 	{
-		t_mlx	*mlx;
-		const char *path_file;
-
-		path_file = argv[1];
-		mlx = init_fdf(path_file);
-		printf ("[LOG]: MAP_ROW: %d | MAP_COLUMN: %d\n", mlx->map.max_x, mlx->map.max_y);
-		free(mlx);
+		ft_printf("%s\n", msg);
+		exit (code);
 	}
-	else
-		error_exit("Number of invalid arguments, maximum 1", 1);
-	return (0);
+	ft_printf("%s\n", msg);
+	exit (-1);
 }

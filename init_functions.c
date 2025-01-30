@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:12:57 by lsilva-x         ###   ########.fr       */
+/*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
+/*   Updated: 2025/01/30 20:14:48 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, const char **argv)
+t_mlx	*init_fdf(const char *path_file)
 {
-	if (argc == 2)
-	{
-		t_mlx	*mlx;
-		const char *path_file;
+	t_mlx	*mlx;
+	char	*readed_map;
 
-		path_file = argv[1];
-		mlx = init_fdf(path_file);
-		printf ("[LOG]: MAP_ROW: %d | MAP_COLUMN: %d\n", mlx->map.max_x, mlx->map.max_y);
-		free(mlx);
-	}
-	else
-		error_exit("Number of invalid arguments, maximum 1", 1);
-	return (0);
+	mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	if (!mlx)
+		error_exit("Memory allocation failure", 2);
+	readed_map = init_map(mlx, path_file);
+	init_pts(mlx, readed_map);
+
+	return (mlx);
 }
