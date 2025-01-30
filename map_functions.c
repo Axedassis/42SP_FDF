@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:26:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:14:17 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:27:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*init_map(t_mlx *mlx, const char *path_file)
 	mlx->map.max_y = get_columns_heigth(readed_map);
 	mlx->map.max_z = 0;
 	mlx->map.min_z = 0;
-	return (read_map);
+	return (readed_map);
 }
 
 static void	path_checker(t_mlx *mlx, const char *path_file)
