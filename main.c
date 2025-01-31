@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 23:48:28 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:31:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	main(int argc, const char **argv)
 
 		path_file = argv[1];
 		mlx = init_fdf(path_file);
-		// init_mlx(mlx);
-		// init_cam(mlx);
-		//init_render(mlx);
-		// close_window(mlx);
+		init_mlx(mlx);
+		init_cam(mlx);
+		init_render(mlx);
+		close_window(mlx);
 		// mlx_loop(mlx->mlx);
 	}
 	else

@@ -6,15 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 22:20:58 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 11:22:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
 
-# define WIN_WIDTH 1200
-# define WIN_HEIGHT 900
+# define WIN_WIDTH 1000
+# define WIN_HEIGHT 1000
 
 # define ANG_30 0.52359877
 # define ANG_1	0.01745329
