@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:43:40 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:41:21 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:10:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,23 @@ void	init_malloc_pts(t_mlx *mlx, char *readed_map)
 		j++;
 	}
 }
+
+void	free_pts(t_mlx *mlx)
+{
+	int	i;
+
+	i = 0;
+	if (mlx->map.pts)
+	{
+		while (i < mlx->map.max_y)
+		{
+			if (mlx->map.pts[i])
+				free(mlx->map.pts[i]);
+			i++;
+		}
+		free(mlx->map.pts);
+		mlx->map.pts = NULL;
+	}
+}
+
+
