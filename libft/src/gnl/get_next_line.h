@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 12:27:50 by lsilva-x          #+#    #+#             */
-/*   Updated: 2024/11/16 16:54:48 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:16:44 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ char	*gnl_rest(char *buffer);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t cnt, size_t size);
 
 #endif

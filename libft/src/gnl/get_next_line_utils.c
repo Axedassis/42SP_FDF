@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 12:27:40 by lsilva-x          #+#    #+#             */
-/*   Updated: 2024/11/16 17:47:38 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:12:22 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./get_next_line_bonus.h"
+#include "./get_next_line.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 }
 
-void	ft_bzero(void *s, size_t n)
+static void	ft_bzero(void *s, size_t n)
 {
 	unsigned int	i;
 	char			*cptr;

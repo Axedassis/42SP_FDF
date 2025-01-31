@@ -6,18 +6,22 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 21:28:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:20:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
 
-#define WIN_WIDTH 900
-#define WIN_HEIGHT 900
+# define WIN_WIDTH 1200
+# define WIN_HEIGHT 900
 
-#define IMG_WIDTH WIN_WIDTH
-#define IMG_HEIGHT WIN_HEIGHT
+# define ANG_30 0.52359877
+# define ANG_1	0.01745329
+# define ANG_45 0.78539816
+
+# define IMG_WIDTH WIN_WIDTH
+# define IMG_HEIGHT WIN_HEIGHT
 
 typedef struct	s_pt
 {
@@ -62,5 +66,12 @@ typedef struct	s_fdf
 	t_cam	cam;
 	t_data	img;
 }	t_mlx;
+
+typedef struct s_line
+{
+	t_pts	start;
+	t_pts	end;
+	float	transform_z;
+}	t_line;
 
 #endif
