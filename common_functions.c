@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:43:40 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 23:17:19 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:50:10 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,15 @@ void	free_pts(t_mlx *mlx)
 	i = 0;
 	if (mlx->map.pts)
 	{
-		while (i < mlx->map.max_y)
+		while (i < mlx->map.max_x)
 		{
 			if (mlx->map.pts[i])
 				free(mlx->map.pts[i]);
 			i++;
 		}
 		free(mlx->map.pts);
-		mlx->map.pts = NULL;
 	}
 }
-
 
 void	clear_buffer(t_data *img)
 {
@@ -89,26 +87,20 @@ void	clear_buffer(t_data *img)
 	}
 }
 
-void	close_window(t_mlx *mlx)
+int	close_window(t_mlx *mlx)
 {
-	if (mlx->win)
-	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
-		mlx->win = NULL;
-	}
 	if (mlx->img.img)
-	{
 		mlx_destroy_image(mlx->mlx, mlx->img.img);
-		mlx->img.img = NULL;
-	}
-	free_pts(mlx);
+	if (mlx->win)
+		mlx_destroy_window(mlx->mlx, mlx->win);
 	if (mlx->map.pts)
 		free_pts(mlx);
 	if (mlx->mlx)
 	{
 		mlx_destroy_display(mlx->mlx);
-		free(mlx);
+		free(mlx->mlx);
 	}
-	ft_printf ("FDF closed");
+	free(mlx);
+	ft_printf("FDF closed\n");
 	exit(0);
 }
