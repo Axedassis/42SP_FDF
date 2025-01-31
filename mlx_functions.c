@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:02:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 21:17:11 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:29:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	destroy_win(t_mlx *mlx);
 static void	init_img(t_mlx *mlx);
+static int	key_hook(int keysym, t_mlx *mlx);
+
 
 void	init_mlx(t_mlx *mlx)
 {
@@ -34,7 +36,7 @@ void	init_mlx(t_mlx *mlx)
 	}
 	init_img(mlx);
 	mlx_hook(mlx->win, 17, 1L << 0, destroy_win, mlx);
-	// mlx_key_hook(mlx->win, key_hook, mlx);
+	mlx_key_hook(mlx->win, key_hook, mlx);
 }
 
 static int	destroy_win(t_mlx *mlx)
@@ -65,4 +67,12 @@ static void	init_img(t_mlx *mlx)
 		free(mlx);
 		error_exit("Error getting image data address", 11);
 	}
+}
+
+static int	key_hook(int keysym, t_mlx *mlx)
+{
+
+	if (keysym == XK_Escape)
+		destroy_win(mlx);
+	return (0);
 }

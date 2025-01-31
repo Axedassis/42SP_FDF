@@ -8,6 +8,8 @@
         "keysym.h": "c",
         "fcntl.h": "c",
         "stdio.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "unistd.h": "c",
+        "get_next_line.h": "c"
     }
 }

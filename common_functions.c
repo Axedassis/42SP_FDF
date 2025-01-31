@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:43:40 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 21:10:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:17:19 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,20 @@ void	init_malloc_pts(t_mlx *mlx, char *readed_map)
 
 	j = 0;
 	i = -1;
-	mlx->map.pts = (t_pts **)malloc(sizeof(t_pts *) * mlx->map.max_y);
+	mlx->map.pts = (t_pts **)malloc(sizeof(t_pts *) * mlx->map.max_x);
 	if (!mlx->map.pts)
 	{
 		free(mlx);
 		free(readed_map);
 		error_exit("Memory allocation failed for mlx->map.pts", 6);
 	}
-	while (j < mlx->map.max_y)
+	while (j < mlx->map.max_x)
 	{
-		mlx->map.pts[j] = (t_pts *)malloc(sizeof(t_pts) * mlx->map.max_x);
+		mlx->map.pts[j] = (t_pts *)malloc(sizeof(t_pts) * mlx->map.max_y);
 		if (!mlx->map.pts[j])
 		{
-			while (i++ < j)
+			i = -1;
+			while (++i < j)
 				free(mlx->map.pts[i]);
 			error_exit("Memory allocation failed for mlx->map.pts", 7);
 		}
@@ -69,3 +70,45 @@ void	free_pts(t_mlx *mlx)
 }
 
 
+void	clear_buffer(t_data *img)
+{
+	int	x;
+	int	y;
+
+	ft_bzero(img->addr, 50000);
+	y = 0;
+	while (y < IMG_HEIGHT)
+	{
+		x = 0;
+		while (x < IMG_WIDTH)
+		{
+			pixel_to_image(img, x, y, 0x000000);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	close_window(t_mlx *mlx)
+{
+	if (mlx->win)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		mlx->win = NULL;
+	}
+	if (mlx->img.img)
+	{
+		mlx_destroy_image(mlx->mlx, mlx->img.img);
+		mlx->img.img = NULL;
+	}
+	free_pts(mlx);
+	if (mlx->map.pts)
+		free_pts(mlx);
+	if (mlx->mlx)
+	{
+		mlx_destroy_display(mlx->mlx);
+		free(mlx);
+	}
+	ft_printf ("FDF closed");
+	exit(0);
+}
