@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 21:17:50 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:27:42 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, const char **argv)
 		mlx = init_fdf(path_file);
 		init_mlx(mlx);
 		printf ("[LOG]: MAP_ROW: %d | MAP_COLUMN: %d\n", mlx->map.max_x, mlx->map.max_y);
+		init_cam(mlx);
 		mlx_loop(mlx->mlx);
 	}
 	else

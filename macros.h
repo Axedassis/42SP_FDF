@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 21:03:32 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:28:35 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,22 @@ typedef struct	s_data {
 	int		endian;
 } t_data;
 
+typedef struct s_cam
+{
+	int		mv_x;
+	int		mv_y;
+	float	scale_factory;
+	double	alpha;
+	double	beta;
+	double	gamma;
+}	t_cam;
+
 typedef struct	s_fdf
 {
 	void	*mlx;
 	void	*win;
 	t_map	map;
-	// t_cam	cam;
+	t_cam	cam;
 	t_data	img;
 }	t_mlx;
 
