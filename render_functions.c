@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:36:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 13:05:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:36:41 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ static t_line	*init_line(t_mlx *mlx, t_pts start, t_pts end)
 		close_window(mlx);
 	line->start.x = start.x;
 	line->start.y = start.y;
-	line->start.z = start.z;
+	line->start.z = start.z * 0.8;
 	line->start.color = start.color;
 	line->end.x = end.x;
 	line->end.y = end.y;
-	line->end.z = end.z;
+	line->end.z = end.z * 0.8;
 	line->end.color = end.color;
 	return (line);
 }
