@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 22:19:11 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:44:03 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	init_cam(t_mlx *mlx);
 void	clear_buffer(t_data *img);
 void	init_render(t_mlx *mlx);
 void	bresenhams(t_mlx *mlx, t_line *line);
-// void	bresenham(t_mlx *mlx, t_pts start, t_pts end);
 void	close_window(t_mlx *mlx);
 void	pixel_to_image(t_data *image, float x, float y, int color);
 

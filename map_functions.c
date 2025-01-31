@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:26:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:27:54 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:50:30 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static char	*read_map(t_mlx *mlx, int fd)
 	if (!str_tmp)
 	{
 		free (mlx);
+		free(str);
 		error_exit("Get next line error", 5);
 	}
 	while (1)
