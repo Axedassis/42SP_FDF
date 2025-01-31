@@ -6,88 +6,85 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:47:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 23:28:18 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:40:17 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	pixel_to_image(t_data *image, float x, float y, int color)
+static void		determine_steps(t_line *line, int *sx, int *sy);
+static void		draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta);
+static void		draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta);
+
+void	bresenhams(t_mlx *mlx, t_line *line)
 {
-	int	pixel;
+	t_delta	delta;
 
-	if (x < 0 || x >= IMG_WIDTH || y < 0 || y >= IMG_HEIGHT)
-		return;
+	delta.dx = abs(line->end.x - line->start.x);
+	delta.dy = abs(line->end.y - line->start.y);
+	determine_steps(line, &delta.sx, &delta.sy);
+	if (delta.dx > delta.dy)
+		draw_shallow_line(mlx, line, delta);
+	else
+		draw_steep_line(mlx, line, delta);
+}
 
-	pixel = ((int)y * image->line_length) + ((int)x * 4);
-	if (image->endian == 1)
+static void	determine_steps(t_line *line, int *sx, int *sy)
+{
+	if (line->start.x < line->end.x)
+		*sx = 1;
+	else
+		*sx = -1;
+	if (line->start.y < line->end.y)
+		*sy = 1;
+	else
+		*sy = -1;
+}
+
+static void	draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta)
+{
+	int		p;
+	int		x;
+	int		y;
+	int		steps;
+
+	p = 2 * delta.dy - delta.dx;
+	x = line->start.x;
+	y = line->start.y;
+	steps = -1;
+	while (++steps <= delta.dx)
 	{
-		image->addr[pixel + 0] = (color >> 24);
-		image->addr[pixel + 1] = (color >> 16) & 0xff;
-		image->addr[pixel + 2] = (color >> 8) & 0xff;
-		image->addr[pixel + 3] = (color) & 0xff;
-	}
-	else if (image->endian == 0)
-	{
-		image->addr[pixel + 0] = (color) & 0xff;
-		image->addr[pixel + 1] = (color >> 8) & 0xff;
-		image->addr[pixel + 2] = (color >> 16) & 0xff;
-		image->addr[pixel + 3] = (color >> 24);
+		pixel_to_image(&mlx->img, x, y, line->start.color);
+		if (p >= 0)
+		{
+			y += delta.sy;
+			p -= 2 * delta.dx;
+		}
+		p += 2 * delta.dy;
+		x += delta.sx;
 	}
 }
 
-
-void bresenhams(t_mlx *mlx, t_line *line)
+static void	draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta)
 {
-	int dx, dy, p, x, y, x_end, y_end;
-	int init_color;
+	int		p;
+	int		x;
+	int		y;
+	int		steps;
 
-	dx = abs(line->end.x - line->start.x);
-	dy = abs(line->end.y - line->start.y);
+	p = 2 * delta.dx - delta.dy;
 	x = line->start.x;
 	y = line->start.y;
-	x_end = line->end.x;
-	y_end = line->end.y;
-	init_color = line->start.color;
-
-	int max_steps = (int)fmax(dx, dy);
-	int steps = 0;
-
-	int sx = (line->start.x < line->end.x) ? 1 : -1;
-	int sy = (line->start.y < line->end.y) ? 1 : -1;
-
-	if (dx > dy)
+	steps = -1;
+	while (++steps <= delta.dy)
 	{
-		p = 2 * dy - dx;
-		while (steps <= dx)
+		pixel_to_image(&mlx->img, x, y, line->start.color);
+		if (p >= 0)
 		{
-			// teste = get_color(color, steps, max_steps);
-			// line->start.color = teste;
-			pixel_to_image(&mlx->img, x, y, line->start.color);
-			if (p >= 0)
-			{
-				y += sy;
-				p -= 2 * dx;
-			}
-			p += 2 * dy;
-			x += sx;
-			steps++;
+			x += delta.sx;
+			p -= 2 * delta.dy;
 		}
-	}
-	else
-	{
-		p = 2 * dx - dy;
-		while (steps <= dy)
-		{
-			pixel_to_image(&mlx->img, x, y, line->start.color);
-			if (p >= 0)
-			{
-				x += sx;
-				p -= 2 * dy;
-			}
-			p += 2 * dx;
-			y += sy;
-			steps++;
-		}
+		p += 2 * delta.dx;
+		y += delta.sy;
 	}
 }

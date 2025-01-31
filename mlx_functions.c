@@ -6,16 +6,14 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:02:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 12:18:15 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:48:21 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	destroy_win(t_mlx *mlx);
 static void	init_img(t_mlx *mlx);
 static int	key_hook(int keysym, t_mlx *mlx);
-
 
 void	init_mlx(t_mlx *mlx)
 {
@@ -35,16 +33,8 @@ void	init_mlx(t_mlx *mlx)
 		error_exit ("Error initializing MLX WIN", 9);
 	}
 	init_img(mlx);
-	mlx_hook(mlx->win, 17, 1L << 0, destroy_win, mlx);
+	mlx_hook(mlx->win, 17, 1L << 0, close_window, mlx);
 	mlx_key_hook(mlx->win, key_hook, mlx);
-}
-
-static int	destroy_win(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx, mlx->win);
-	mlx_destroy_display(mlx->mlx);
-	free(mlx->mlx);
-	exit (0);
 }
 
 static void	init_img(t_mlx *mlx)
@@ -71,8 +61,7 @@ static void	init_img(t_mlx *mlx)
 
 static int	key_hook(int keysym, t_mlx *mlx)
 {
-
 	if (keysym == XK_Escape)
-		destroy_win(mlx);
+		close_window(mlx);
 	return (0);
 }

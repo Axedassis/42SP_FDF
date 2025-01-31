@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 11:22:54 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:22:58 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@
 # define IMG_WIDTH WIN_WIDTH
 # define IMG_HEIGHT WIN_HEIGHT
 
-typedef struct	s_pt
+typedef struct s_delta {
+	int dx;
+	int dy;
+	int sx;
+	int sy;
+} t_delta;
+
+typedef struct s_pt
 {
 	int		x;
 	int		y;
@@ -31,7 +38,7 @@ typedef struct	s_pt
 	int		color;
 }	t_pts;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	int		max_x;
 	int		max_y;
@@ -40,13 +47,14 @@ typedef struct	s_map
 	t_pts	**pts;
 }	t_map;
 
-typedef struct	s_data {
+typedef struct s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-} t_data;
+}	t_data;
 
 typedef struct s_cam
 {
@@ -58,7 +66,7 @@ typedef struct s_cam
 	double	gamma;
 }	t_cam;
 
-typedef struct	s_fdf
+typedef struct s_fdf
 {
 	void	*mlx;
 	void	*win;
