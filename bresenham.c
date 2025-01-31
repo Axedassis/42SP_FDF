@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:47:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 14:18:27 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:02:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta)
 	p = 2 * delta.dy - delta.dx;
 	x = line->start.x;
 	y = line->start.y;
-	steps = -1;
-	while (++steps <= delta.dx)
+	steps = 0;
+	while (steps <= delta.dx)
 	{
 		pixel_to_image(&mlx->img, x, y, line->start.color);
 		if (p >= 0)
@@ -62,6 +62,7 @@ static void	draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta)
 		}
 		p += 2 * delta.dy;
 		x += delta.sx;
+		steps++;
 	}
 }
 
@@ -75,8 +76,8 @@ static void	draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta)
 	p = 2 * delta.dx - delta.dy;
 	x = line->start.x;
 	y = line->start.y;
-	steps = -1;
-	while (++steps <= delta.dy)
+	steps = 0;
+	while (steps <= delta.dy)
 	{
 		pixel_to_image(&mlx->img, x, y, line->start.color);
 		if (p >= 0)
@@ -86,5 +87,6 @@ static void	draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta)
 		}
 		p += 2 * delta.dx;
 		y += delta.sy;
+		steps++;
 	}
 }
