@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:45:03 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:13:16 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ t_mlx	*init_fdf(const char *path_file)
 	init_malloc_pts(mlx, readed_map);
 	init_pts(&mlx->map, readed_map);
 	print_pts(mlx);
-
 	return (mlx);
 }

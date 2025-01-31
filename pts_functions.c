@@ -6,15 +6,16 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/30 20:42:22 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:01:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void set_color(char **str, t_pts *ptr);
+static void	set_color(char **str, t_pts *ptr);
 static void	set_pt(char **str, int origin_x, int origin_y, t_pts *ptr);
 static int	increase_ptr(int crr_n);
+static void	center_to_origin(t_map *map);
 
 
 void	init_pts(t_map *map, char *readed_map)
@@ -48,6 +49,7 @@ void	init_pts(t_map *map, char *readed_map)
 			readed_map++;
 	}
 	free (init_ptr);
+	center_to_origin(map);
 }
 
 static void set_color(char **str, t_pts *ptr)
@@ -87,4 +89,23 @@ static int	increase_ptr(int crr_n)
 		i++;
 	}
 	return (i);
+}
+
+static void	center_to_origin(t_map *map)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < map->max_y)
+	{
+		x = 0;
+		while (x < map->max_x)
+		{
+			map->pts[x][y].x -= map->max_x / 2;
+			map->pts[x][y].y -= map->max_y / 2;
+			x++;
+		}
+		y++;
+	}
 }
