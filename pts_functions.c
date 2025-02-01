@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 18:37:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:57:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,29 @@ void	init_pts(t_map *map, char *readed_map)
 	free(init_ptr);
 }
 
-void	set_color(char **str, t_pts *ptr)
+void	set_color(char **str, t_pts *ptr, t_map *map)
 {
+	map->h_col = 1;
 	*str += 3;
 	ptr->color = ft_atoi_hexa(*str);
 	while (**str != ' ' && **str && **str != '\n')
 		(*str)++;
 }
 
-void	set_pt(char **str, int origin_x, int origin_y, t_pts *ptr)
+void	set_pt(char **str, int origin_x, int origin_y, t_map *map)
 {
-	ptr->x = origin_x;
-	ptr->y = origin_y;
-	ptr->z = ft_atoi(*str);
-	ptr->color = 0xFFFFFF;
-	*str += increase_ptr(ptr->z);
+	int		nbr;
+
+	nbr = ft_atoi(*str);
+	map->pts[origin_y][origin_x].x = origin_x;
+	map->pts[origin_y][origin_x].y = origin_y;
+	map->pts[origin_y][origin_x].z = nbr;
+	map->pts[origin_y][origin_x].color = 0xFFFFFF;
+	*str += increase_ptr(map->pts[origin_y][origin_x].z);
+	if (nbr < map->min_z)
+		map->min_z = nbr;
+	if (nbr > map->max_z)
+		map->max_z = nbr;
 }
 
 static int	increase_ptr(int crr_n)

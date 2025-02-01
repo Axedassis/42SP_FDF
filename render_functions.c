@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:36:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 17:58:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:48:39 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static t_line	*init_line(t_mlx *mlx, t_pts start, t_pts end)
 {
 	t_line	*line;
 
+	apply_color(mlx, &start);
+	apply_color(mlx, &end);
 	start.z *= mlx->cam.scale_factory;
 	end.z *= mlx->cam.scale_factory;
 	line = (t_line *)malloc(sizeof(t_line) * 1);
