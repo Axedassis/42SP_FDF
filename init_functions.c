@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 18:37:14 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:58:10 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ void	parse_map(t_map *map, char *readed_map)
 	{
 		if (*readed_map == '-' || (*readed_map >= '0' && *readed_map <= '9'))
 		{
-			set_pt(&readed_map, x, y, &map->pts[y][x]);
+			set_pt(&readed_map, x, y, map);
 			x++;
 			pts_count++;
 		}
 		else if (*readed_map == ',')
-			set_color(&readed_map, &map->pts[y][x - 1]);
+			set_color(&readed_map, &map->pts[y][x - 1], map);
 		else if (*readed_map == '\n')
 			node_parse(&x, &y, &readed_map);
 		else if (*readed_map == ' ')
