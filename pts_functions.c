@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/01 16:57:55 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:13:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	set_pt(char **str, int origin_x, int origin_y, t_map *map)
 	map->pts[origin_y][origin_x].x = origin_x;
 	map->pts[origin_y][origin_x].y = origin_y;
 	map->pts[origin_y][origin_x].z = nbr;
-	map->pts[origin_y][origin_x].color = 0xFFFFFF;
+	map->pts[origin_y][origin_x].color = COL_DEFAULT;
 	*str += increase_ptr(map->pts[origin_y][origin_x].z);
 	if (nbr < map->min_z)
 		map->min_z = nbr;
