@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/02 21:27:42 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:51:35 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ void	set_to_null(t_mlx *mlx)
 	mlx->map = (t_map){0};
 	mlx->mlx = NULL;
 	mlx->win = NULL;
+}
+
+float	get_scale(t_mlx *mlx)
+{
+	float	scale;
+	float	scale_x;
+	float	scale_y;
+
+	scale_x = WIN_WIDTH / (float)mlx->map.max_x;
+	scale_y = WIN_HEIGHT / (float)mlx->map.max_y;
+	if (scale_x < scale_y)
+		scale = scale_x;
+	else
+		scale = scale_y;
+	return (scale / 1.75);
 }

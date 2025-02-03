@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:02:44 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/02 21:12:58 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:50:46 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static int	color_gradient(t_color *color, float progress)
 	return (color->start_color + r + g + b);
 }
 
-int get_color(t_color *color, int crr_val, int max_val)
+int	get_color(t_color *color, int crr_val, int max_val)
 {
-	float progression;
+	float	progression;
 
 	if (max_val == 0)
 		return (color->start_color);

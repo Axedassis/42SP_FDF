@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 15:17:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:53:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # define MSK_RED 0xFF0000
 # define MSK_GREEN 0x00FF00
 # define MSK_BLUE 0x0000FF
-
 
 typedef struct s_color
 {
@@ -100,14 +99,14 @@ typedef struct s_line
 	float	transform_z;
 }	t_line;
 
-typedef struct s_delta {
+typedef struct s_delta
+{
 	int		dx;
 	int		dy;
 	int		sx;
 	int		sy;
 	t_color	*color;
 
-} t_delta;
-
+}	t_delta;
 
 #endif

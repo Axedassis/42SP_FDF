@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:47:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/01 16:50:24 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:50:20 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta);
 void	bresenhams(t_mlx *mlx, t_line *line)
 {
 	t_delta	delta;
-	t_color *color;
+	t_color	*color;
 
 	delta.color = init_pallet(line->start.color, line->end.color);
 	delta.dx = abs(line->end.x - line->start.x);
@@ -57,7 +57,8 @@ static void	draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta)
 	steps = 0;
 	while (steps <= delta.dx)
 	{
-		line->start.color = get_color(delta.color, steps, fmax(delta.dx, delta.dy));
+		line->start.color = get_color(delta.color, steps,
+				fmax(delta.dx, delta.dy));
 		pixel_to_image(&mlx->img, x, y, line->start.color);
 		if (p >= 0)
 		{
@@ -83,7 +84,8 @@ static void	draw_steep_line(t_mlx *mlx, t_line *line, t_delta delta)
 	steps = 0;
 	while (steps <= delta.dy)
 	{
-		line->start.color = get_color(delta.color, steps, fmax(delta.dx, delta.dy));
+		line->start.color = get_color(delta.color, steps,
+				fmax(delta.dx, delta.dy));
 		pixel_to_image(&mlx->img, x, y, line->start.color);
 		if (p >= 0)
 		{

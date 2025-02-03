@@ -6,32 +6,13 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 15:54:40 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:51:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 static void	node_parse(int *x, int *y, char **map);
-
-//? TESTEEE
-
-float	get_scale(t_mlx *mlx)
-{
-	float	scale;
-	float	scale_x;
-	float	scale_y;
-
-	scale_x = WIN_WIDTH / (float)mlx->map.max_x;
-	scale_y = WIN_HEIGHT / (float)mlx->map.max_y;
-	if (scale_x < scale_y)
-		scale = scale_x;
-	else
-		scale = scale_y;
-	return (scale / 1.75);
-}
-//? TESTEEE
-
 
 void	init_cam(t_mlx *mlx)
 {
