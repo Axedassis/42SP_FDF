@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/01 16:58:17 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:47:23 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void		set_pt(char **str, int origin_x, int origin_y, t_map *map);
 void		apply_color(t_mlx *mlx, t_pts *pts);
 t_color		*init_pallet(int col_start, int col_end);
 int			get_color(t_color *color, int crr_val, int max_val);
-
+void		set_to_null(t_mlx *mlx);
+float	get_scale(t_mlx *mlx);
 #endif

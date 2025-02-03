@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/01 16:58:10 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:26:59 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_mlx	*init_fdf(const char *path_file)
 	mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!mlx)
 		error_exit("Memory allocation failure", 2);
+	set_to_null(mlx);
 	readed_map = init_map(mlx, path_file);
 	init_malloc_pts(mlx, readed_map);
 	init_pts(&mlx->map, readed_map);
