@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 18:35:55 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/02/03 18:31:26 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/02/03 18:35:14 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,24 +39,20 @@ all: libmlx libft $(NAME)
 $(NAME): libft libmlx $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT_LIB) $(LIBMLX_LIB) $(INCLUDE) -o $(NAME)
 libft:
-	@echo "Building libft..."
 	make all -C $(LIBFT_DIR)
 
 libmlx:
-	@echo "Building libmlx..."
 	make -C $(LIBMLX_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS)  -I . -I $(LIBFT_DIR) -I $(LIBMLX_DIR) -c $< -o $@
 
 clean:
-	@echo "Cleaning object files..."
 	rm -f $(OBJ)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(LIBMLX_DIR)
 
 fclean: clean
-	@echo "Removing executable..."
 	rm -f $(NAME)
 	make clean -C $(LIBMLX_DIR)
 	make fclean -C $(LIBFT_DIR)
