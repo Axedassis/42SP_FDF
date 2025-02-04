@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 16:51:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:37:51 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ t_color		*init_pallet(int col_start, int col_end);
 int			get_color(t_color *color, int crr_val, int max_val);
 void		set_to_null(t_mlx *mlx);
 float		get_scale(t_mlx *mlx);
+int			file_format(const char *path_file);
+void		free_split(char **split);
 
 #endif

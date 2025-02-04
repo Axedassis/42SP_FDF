@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 01:25:05 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:45:39 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ void		rotate(t_cam *cam, t_line *line);
 void		print_menu(t_mlx *mmlx);
 void		projection(t_mlx *mlx, t_line *line);
 void		key_project(int keycode, t_mlx *mlx);
+int			file_format(const char *path_file);
+void		free_split(char **split);
+void		free_split(char **split);
 
 #endif

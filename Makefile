@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 18:35:55 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/02/04 15:54:23 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/02/04 17:44:37 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC	= bresenham.c \
 	  pts_functions.c \
 	  render_functions.c \
 	  model_render.c \
+	  file_format.c \
 	  main.c 
 
 SRC_BONUS	= bresenham_bonus.c \
@@ -42,6 +43,7 @@ SRC_BONUS	= bresenham_bonus.c \
 		  render_functions_bonus.c \
 		  model_render_bonus.c \
 		  key_handler_bonus.c \
+		  file_format_bonus.c \
 		  rotate_bonus.c \
 		  info_screen_bonus.c \
 		  main_bonus.c 
