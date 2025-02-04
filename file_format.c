@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:23 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 17:39:58 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:41:00 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,21 @@ int	file_format(const char *path_file)
 
 static int	word_count(char **split)
 {
-	int	nbr;
+	int		nbr;
+	int		i;
 
 	nbr = 0;
-	while (split[nbr])
-		nbr++;
+	i = 0;
+	while (split[i])
+	{
+		if (*split[i] == '\n')
+			i++;
+		else
+		{
+			i++;
+			nbr++;
+		}
+	}
 	return (nbr);
 }
 
