@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 21:03:32 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 01:24:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 01:50:33 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static void	key_scale(int keycode, t_mlx *mlx)
 	else if (keycode == XK_minus)
 		mlx->cam.scale_factory -= 0.5;
 	else if (keycode == XK_r)
-		mlx->cam.scale_factory = fmin((WIN_WIDTH / mlx->map.max_x),
-				(WIN_HEIGHT / mlx->map.max_y));
+		init_cam(mlx);
 }
 
 static void	key_translate(int keycode, t_mlx *mlx)
@@ -62,7 +61,6 @@ static void	key_scale_z(int keycode, t_mlx *mlx)
 		mlx->cam.scale_factory_z += 0.08;
 	else if (keycode == XK_space)
 		mlx->map.h_col *= -1;
-
 }
 
 int	key_hook(int keysym, t_mlx *mlx)

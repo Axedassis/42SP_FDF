@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:05:07 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 01:25:46 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 01:51:01 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 static void	side_parallel(t_line *line);
 static void	isometric(t_line *line);
 
-
 void	projection(t_mlx *mlx, t_line *line)
 {
-	if(mlx->cam.project == 1)
+	if (mlx->cam.project == 1)
 		isometric(line);
 	else if (mlx->cam.project == 2)
 		side_parallel(line);
