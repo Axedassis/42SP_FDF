@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 21:08:52 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 23:14:02 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			close_window(t_mlx *mlx);
 void		pixel_to_image(t_data *image, float x, float y, int color);
 void		isometric(t_line *line);
 void		parse_map(t_map *map, char *readed_map);
-void		set_color(char **str, t_pts *ptr, t_map *map);
+void		set_color(char **str, t_pts *ptr);
 void		set_pt(char **str, int origin_x, int origin_y, t_map *map);
 void		apply_color(t_mlx *mlx, t_pts *pts);
 t_color		*init_pallet(int col_start, int col_end);

@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/02 21:13:43 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 23:13:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	init_pts(t_map *map, char *readed_map)
 	free(init_ptr);
 }
 
-void	set_color(char **str, t_pts *ptr, t_map *map)
+void	set_color(char **str, t_pts *ptr)
 {
-	map->h_col = 1;
 	*str += 3;
 	ptr->color = ft_atoi_hexa(*str);
 	while (**str != ' ' && **str && **str != '\n')
