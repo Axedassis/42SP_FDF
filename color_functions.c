@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:02:44 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 23:24:16 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 23:45:13 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	apply_color(t_mlx *mlx, t_pts *pts)
 {
 	t_color	*color;
 
-	if (mlx->map.h_col == 1 &&(pts->z * mlx->cam.scale_factory_z) >= 0)
+	if (mlx->map.h_col == 1 && (pts->z * mlx->cam.scale_factory_z) >= 0)
 	{
 		color = init_pallet(COL_GREEN, COL_BLUE);
 		pts->color = get_color(color, pts->z, abs(mlx->map.max_z));
