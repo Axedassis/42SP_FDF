@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_functions.c                                    :+:      :+:    :+:   */
+/*   mlx_functions_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:02:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 12:48:21 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 00:48:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 static void	init_img(t_mlx *mlx);
-static int	key_hook(int keysym, t_mlx *mlx);
 
 void	init_mlx(t_mlx *mlx)
 {
@@ -57,11 +56,4 @@ static void	init_img(t_mlx *mlx)
 		free(mlx);
 		error_exit("Error getting image data address", 11);
 	}
-}
-
-static int	key_hook(int keysym, t_mlx *mlx)
-{
-	if (keysym == XK_Escape)
-		close_window(mlx);
-	return (0);
 }

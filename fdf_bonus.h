@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 16:51:30 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 01:25:05 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FDF_BONUS_H
+# define FDF_BONUS_H
 
 # include "minilibx-linux/mlx.h"
 # include "libft/includes/libft.h"
-# include "macros.h"
+# include "macros_bonus.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -36,14 +36,18 @@ void		init_render(t_mlx *mlx);
 void		bresenhams(t_mlx *mlx, t_line *line);
 int			close_window(t_mlx *mlx);
 void		pixel_to_image(t_data *image, float x, float y, int color);
-void		isometric(t_line *line);
 void		parse_map(t_map *map, char *readed_map);
-void		set_color(char **str, t_pts *ptr, t_map *map);
+void		set_color(char **str, t_pts *ptr);
 void		set_pt(char **str, int origin_x, int origin_y, t_map *map);
 void		apply_color(t_mlx *mlx, t_pts *pts);
 t_color		*init_pallet(int col_start, int col_end);
 int			get_color(t_color *color, int crr_val, int max_val);
 void		set_to_null(t_mlx *mlx);
 float		get_scale(t_mlx *mlx);
+int			key_hook(int keysym, t_mlx *mlx);
+void		rotate(t_cam *cam, t_line *line);
+void		print_menu(t_mlx *mmlx);
+void		projection(t_mlx *mlx, t_line *line);
+void		key_project(int keycode, t_mlx *mlx);
 
 #endif

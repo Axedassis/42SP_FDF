@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_functions.c                                    :+:      :+:    :+:   */
+/*   map_functions_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:26:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 12:49:32 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 00:48:43 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 static char		*read_map(t_mlx *mlx, int fd);
 static void		path_checker(t_mlx *mlx, const char *path_file);
@@ -34,6 +34,7 @@ char	*init_map(t_mlx *mlx, const char *path_file)
 	mlx->map.max_y = get_columns_heigth(readed_map);
 	mlx->map.max_z = 0;
 	mlx->map.min_z = 0;
+	mlx->map.h_col = -1;
 	return (readed_map);
 }
 
