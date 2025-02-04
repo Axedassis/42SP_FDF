@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 16:51:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:37:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, const char **argv)
 	if (argc == 2)
 	{
 		path_file = argv[1];
+		if (file_format(path_file) == -1)
+			exit(EXIT_FAILURE);
 		mlx = init_fdf(path_file);
 		init_mlx(mlx);
 		init_cam(mlx);
@@ -53,4 +55,17 @@ float	get_scale(t_mlx *mlx)
 	else
 		scale = scale_y;
 	return (scale / 1.75);
+}
+
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (split)
+	{
+		while (split[i])
+			free(split[i++]);
+		free(split);
+	}
 }
