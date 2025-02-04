@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 22:22:53 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:51:38 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	init_cam(t_mlx *mlx)
 	mlx->cam.alpha = 0;
 	mlx->cam.beta = 0;
 	mlx->cam.gamma = 0;
-	mlx->cam.scale_factory_z = 1;
 }
 
 t_mlx	*init_fdf(const char *path_file)

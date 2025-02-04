@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 18:35:55 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/02/03 21:07:39 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/02/03 18:35:14 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ SRC		= bresenham.c \
 			pts_functions.c \
 			render_functions.c \
 			model_render.c \
-			key_handler.c \
-			rotate.c \
 			main.c 
 
 OBJ		= $(SRC:.c=.o)

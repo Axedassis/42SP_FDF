@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:36:45 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 22:31:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:51:54 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ static void	draw_line(t_mlx *mlx, t_pts start, t_pts end)
 
 	line = init_line(mlx, start, end);
 	scale(mlx, line);
-	rotate(&mlx->cam, line);
 	isometric(line);
 	center(mlx, line);
 	bresenhams(mlx, line);
@@ -76,21 +75,28 @@ static void	draw_line(t_mlx *mlx, t_pts start, t_pts end)
 static t_line	*init_line(t_mlx *mlx, t_pts start, t_pts end)
 {
 	t_line	*line;
-	float	factory_z;
+	float	z_range;
+	float	z_multiplier;
 
-	factory_z = mlx->cam.scale_factory * mlx->cam.scale_factory_z;
 	apply_color(mlx, &start);
 	apply_color(mlx, &end);
+	z_range = mlx->map.max_z + abs(mlx->map.min_z);
+	if (z_range > 50)
+		z_multiplier = 1;
+	else
+		z_multiplier = 8;
+	start.z *= z_multiplier;
+	end.z *= z_multiplier;
 	line = (t_line *)malloc(sizeof(t_line) * 1);
 	if (!line)
 		close_window(mlx);
 	line->start.x = start.x;
 	line->start.y = start.y;
-	line->start.z = start.z * factory_z;
+	line->start.z = start.z;
 	line->start.color = start.color;
 	line->end.x = end.x;
 	line->end.y = end.y;
-	line->end.z = end.z * factory_z;
+	line->end.z = end.z;
 	line->end.color = end.color;
 	return (line);
 }

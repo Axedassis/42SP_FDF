@@ -6,7 +6,7 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:38:11 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 22:22:37 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:53:47 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef struct s_cam
 	int		mv_x;
 	int		mv_y;
 	float	scale_factory;
-	float	scale_factory_z;
 	double	alpha;
 	double	beta;
 	double	gamma;
