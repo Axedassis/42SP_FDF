@@ -6,7 +6,7 @@
 #    By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 18:35:55 by lsilva-x          #+#    #+#              #
-#    Updated: 2025/02/04 01:34:30 by lsilva-x         ###   ########.fr        #
+#    Updated: 2025/02/04 15:54:23 by lsilva-x         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBMLX_DIR	= ./minilibx-linux
 LIBMLX_LIB	= $(LIBMLX_DIR)/libmlx_Linux.a
 
 LIBFT_DIR	= ./libft
-LIBFT_LIB	= $(LIBFT_DIR)/lib/libft.a
+LIBFT_LIB	= $(LIBFT_DIR)/libft.a
 
 SRC	= bresenham.c \
 	  color_functions.c \
@@ -50,6 +50,7 @@ OBJ		= $(SRC:.c=.o)
 OBJ_BONUS	= $(SRC_BONUS:.c=.o)
 
 all: libmlx libft $(NAME)
+
 bonus: libmlx libft $(NAME)_bonus
 
 $(NAME)_bonus: $(OBJ_BONUS) $(LIBFT_LIB) $(LIBMLX_LIB)
