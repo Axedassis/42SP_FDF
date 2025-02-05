@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:02:44 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 16:50:46 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:57:14 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static int	color_gradient(t_color *color, float progress)
 {

@@ -6,15 +6,15 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:28:14 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 17:37:51 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:13:29 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "minilibx-linux/mlx.h"
-# include "libft/includes/libft.h"
+# include "../../lib/minilibx-linux/mlx.h"
+# include "../../lib/libft/includes/libft.h"
 # include "macros.h"
 # include <fcntl.h>
 # include <math.h>

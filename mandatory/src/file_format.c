@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_format_bonus.c                                :+:      :+:    :+:   */
+/*   file_format.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:25:23 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 18:41:10 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:57:27 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf.h"
 
 static int	word_count(char **split);
 static int	process_line(char *str, int fd, int expected_cnt);

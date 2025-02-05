@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:02:08 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 00:48:47 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:00:11 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf_bonus.h"
 
 static void	init_img(t_mlx *mlx);
 

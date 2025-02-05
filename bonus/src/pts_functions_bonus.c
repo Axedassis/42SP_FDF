@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:13:29 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 00:48:57 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:00:21 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf_bonus.h"
 
 static int	increase_ptr(int crr_n);
 static void	center_to_origin(t_map *map);
