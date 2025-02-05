@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 21:03:32 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 01:50:33 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:59:55 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf_bonus.h"
 
 static void	key_scale(int keycode, t_mlx *mlx)
 {

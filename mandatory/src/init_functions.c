@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_functions_bonus.c                             :+:      :+:    :+:   */
+/*   init_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:55:25 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 01:06:45 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:57:33 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf.h"
 
 static void	node_parse(int *x, int *y, char **map);
 
@@ -22,8 +22,6 @@ void	init_cam(t_mlx *mlx)
 	mlx->cam.alpha = 0;
 	mlx->cam.beta = 0;
 	mlx->cam.gamma = 0;
-	mlx->cam.scale_factory_z = 1;
-	mlx->cam.project = 1;
 }
 
 t_mlx	*init_fdf(const char *path_file)
@@ -82,7 +80,7 @@ void	parse_map(t_map *map, char *readed_map)
 			pts_count++;
 		}
 		else if (*readed_map == ',')
-			set_color(&readed_map, &map->pts[y][x - 1]);
+			set_color(&readed_map, &map->pts[y][x - 1], map);
 		else if (*readed_map == '\n')
 			node_parse(&x, &y, &readed_map);
 		else if (*readed_map == ' ')

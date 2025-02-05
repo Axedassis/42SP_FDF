@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:27:04 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 18:11:35 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:57:06 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 int	main(int argc, const char **argv)
 {

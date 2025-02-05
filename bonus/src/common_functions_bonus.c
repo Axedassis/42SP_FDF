@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:43:40 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/04 00:48:03 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:59:28 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "../includes/fdf_bonus.h"
 
 void	error_exit(const char *msg, int code)
 {

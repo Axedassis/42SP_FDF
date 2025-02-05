@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bresenham.c                                        :+:      :+:    :+:   */
+/*   bresenham_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:47:05 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/02/03 17:18:22 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:59:15 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf_bonus.h"
 
 static void		determine_steps(t_line *line, int *sx, int *sy);
 static void		draw_shallow_line(t_mlx *mlx, t_line *line, t_delta delta);

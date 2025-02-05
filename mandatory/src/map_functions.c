@@ -6,11 +6,11 @@
 /*   By: lsilva-x <lsilva-x@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:26:47 by lsilva-x          #+#    #+#             */
-/*   Updated: 2025/01/31 12:49:32 by lsilva-x         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:58:12 by lsilva-x         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../includes/fdf.h"
 
 static char		*read_map(t_mlx *mlx, int fd);
 static void		path_checker(t_mlx *mlx, const char *path_file);
